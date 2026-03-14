@@ -118,6 +118,28 @@
         .fill-line.long {
             min-width: 350px;
         }
+        .initial-line {
+            display: inline-flex;
+            align-items: center;
+            margin: 15px 0;
+            gap: 10px;
+        }
+        .initial-line .init-box {
+            display: inline-block;
+            border: 1px solid #333;
+            width: 60px;
+            height: 30px;
+            border-radius: 3px;
+        }
+        .initial-line .init-date {
+            display: inline-block;
+            border-bottom: 1px solid #333;
+            min-width: 120px;
+        }
+        .initial-label {
+            font-size: 0.8rem;
+            color: #888;
+        }
         .signature-section {
             display: flex;
             flex-wrap: wrap;
@@ -183,6 +205,35 @@
             max-width: 600px;
             margin: 0 auto 30px;
         }
+        .payment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .payment-table th, .payment-table td {
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        .payment-table th {
+            background: #1a2a3a;
+            color: #fff;
+            font-weight: bold;
+        }
+        .payment-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .highlight-box {
+            background: #fff8ed;
+            border-left: 4px solid #c8952e;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .highlight-box p {
+            margin-bottom: 5px;
+        }
         footer {
             background: #1a2a3a;
             color: #8a9bb0;
@@ -247,6 +298,10 @@
             .fill-line.long {
                 min-width: 150px;
             }
+            .payment-table th, .payment-table td {
+                padding: 8px 10px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -258,17 +313,18 @@
             <a href="about.html">About</a>
             <a href="index.html#services">Services</a>
             <a href="index.html#portfolio">Gallery</a>
+            <a href="contract.html">Contract</a>
             <a href="quote.html">Get a Quote</a>
         </nav>
     </header>
 
     <section class="contract-hero">
         <h1>Construction Agreement</h1>
-        <p>Review our standard contract terms below. Print or download for your records.</p>
+        <p>Review our standard contract terms below. Print or save as PDF for your records.</p>
     </section>
 
     <div class="btn-section">
-        <button class="print-btn" onclick="window.print()">Print Contract</button>
+        <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
     </div>
 
     <div class="contract-container">
@@ -277,69 +333,161 @@
                 <h2>D&amp;F Construction</h2>
                 <p>Construction &amp; Remodeling Agreement</p>
                 <p>Phone: (314) 537-1270 | Email: damir@dfconstruction.net</p>
+                <p>Serving St. Louis &amp; Surrounding Areas (75-Mile Radius)</p>
             </div>
 
             <p>This Construction Agreement ("Agreement") is entered into as of <span class="fill-line short"></span>, 20<span class="fill-line short"></span>, by and between:</p>
 
-            <p><strong>Contractor:</strong> D&amp;F Construction, serving St. Louis and surrounding areas within 75 miles.</p>
-            <p><strong>Client:</strong> <span class="fill-line long"></span></p>
+            <p><strong>Contractor:</strong> D&amp;F Construction</p>
+            <p><strong>Client Name:</strong> <span class="fill-line long"></span></p>
             <p><strong>Client Address:</strong> <span class="fill-line long"></span></p>
             <p><strong>Client Phone:</strong> <span class="fill-line"></span></p>
             <p><strong>Client Email:</strong> <span class="fill-line"></span></p>
+            <p><strong>Project Address (if different):</strong> <span class="fill-line long"></span></p>
 
             <h3>1. Scope of Work</h3>
             <p>The Contractor agrees to furnish all labor, materials, equipment, and services necessary to complete the following work at the project location specified above:</p>
             <p style="min-height:80px; border:1px solid #ddd; border-radius:4px; padding:10px; background:#fafafa;"></p>
+            <div class="initial-line">
+                <span>Client Initials:</span> <span class="init-box"></span>
+                <span>Date:</span> <span class="init-date"></span>
+            </div>
 
             <h3>2. Project Timeline</h3>
             <p>Estimated Start Date: <span class="fill-line"></span></p>
             <p>Estimated Completion Date: <span class="fill-line"></span></p>
             <p>The Contractor will make every reasonable effort to complete the work within the estimated timeline. Delays due to weather, material shortages, unforeseen conditions, or changes requested by the Client may extend the completion date. The Contractor will promptly communicate any anticipated delays.</p>
+            <div class="initial-line">
+                <span>Client Initials:</span> <span class="init-box"></span>
+                <span>Date:</span> <span class="init-date"></span>
+            </div>
 
             <h3>3. Contract Price &amp; Payment Terms</h3>
-            <p>Total Contract Price: $<span class="fill-line"></span></p>
-            <p>Payment shall be made according to the following schedule:</p>
-            <ul>
-                <li><strong>Deposit:</strong> A deposit of <span class="fill-line short"></span>% of the total contract price is due upon signing this Agreement to secure the project start date.</li>
-                <li><strong>Progress Payment:</strong> <span class="fill-line short"></span>% due at project midpoint or as mutually agreed upon.</li>
-                <li><strong>Final Payment:</strong> Remaining balance due upon satisfactory completion of all work and final walkthrough.</li>
-            </ul>
-            <p>Accepted payment methods: Check, Cash, or Bank Transfer. Payments not received within 15 days of the due date may be subject to a late fee of 1.5% per month.</p>
+            <p><strong>Total Contract Price: $</strong><span class="fill-line"></span></p>
+
+            <div class="highlight-box">
+                <p><strong>Payment is required according to the following schedule. By initialing below, the Client acknowledges and agrees to these terms:</strong></p>
+            </div>
+
+            <table class="payment-table">
+                <thead>
+                    <tr>
+                        <th>Payment</th>
+                        <th>Percentage</th>
+                        <th>When Due</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Deposit</strong></td>
+                        <td>20%</td>
+                        <td>Upon acceptance &amp; signing of this Agreement</td>
+                        <td>$<span class="fill-line short"></span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Progress Payment</strong></td>
+                        <td>30%</td>
+                        <td>At the halfway completion point of the project</td>
+                        <td>$<span class="fill-line short"></span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Final Payment</strong></td>
+                        <td>50%</td>
+                        <td>On the last day of project completion</td>
+                        <td>$<span class="fill-line short"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Accepted payment methods: <strong>Cash or Check only.</strong></p>
+
+            <div class="highlight-box">
+                <p><strong>LATE PAYMENT FEE:</strong> Any outstanding balance not paid by the due date specified above will be subject to an additional <strong>5% late fee</strong> applied to the unpaid balance. This fee will be assessed immediately upon the payment becoming past due.</p>
+            </div>
+
+            <div class="initial-line">
+                <span>Client Initials:</span> <span class="init-box"></span>
+                <span>Date:</span> <span class="init-date"></span>
+            </div>
 
             <h3>4. Change Orders</h3>
             <p>Any changes to the scope of work described above must be agreed upon in writing by both parties. Change orders may affect the project timeline and total cost. No additional work will be performed without a signed change order. The Contractor will provide a written estimate for any requested changes before work begins.</p>
+            <div class="initial-line">
+                <span>Client Initials:</span> <span class="init-box"></span>
+                <span>Date:</span> <span class="init-date"></span>
+            </div>
 
             <h3>5. Materials &amp; Workmanship</h3>
             <p>The Contractor will provide quality materials suitable for the intended purpose unless specific materials are requested by the Client. All work will be performed in a professional manner consistent with industry standards and applicable building codes. The Client may request specific brands, grades, or types of materials, which may affect the total contract price.</p>
+            <div class="initial-line">
+                <span>Client Initials:</span> <span class="init-box"></span>
+                <span>Date:</span> <span class="init-date"></span>
+            </div>
 
             <h3>6. Permits &amp; Inspections</h3>
             <p>The Contractor will obtain all necessary building permits and schedule required inspections as part of the project. Permit fees are included in the contract price unless otherwise noted. The Client agrees to provide reasonable access to the property for inspections.</p>
+            <div class="initial-line">
+                <span>Client Initials:</span> <span class="init-box"></span>
+                <span>Date:</span> <span class="init-date"></span>
+            </div>
 
             <h3>7. Warranty</h3>
             <p>The Contractor warrants all workmanship for a period of <strong>one (1) year</strong> from the date of project completion. This warranty covers defects in workmanship and installation. Manufacturer warranties on materials and products are separate and will be passed through to the Client. This warranty does not cover damage caused by misuse, neglect, natural disasters, or modifications made by others.</p>
+            <div class="initial-line">
+                <span>Client Initials:</span> <span class="init-box"></span>
+                <span>Date:</span> <span class="init-date"></span>
+            </div>
 
             <h3>8. Insurance &amp; Liability</h3>
             <p>The Contractor maintains general liability insurance and workers' compensation coverage. Proof of insurance is available upon request. The Contractor is not responsible for pre-existing conditions, concealed damage, or hazardous materials (such as asbestos or lead paint) discovered during the project. If such conditions are found, the Contractor will stop work and notify the Client before proceeding.</p>
+            <div class="initial-line">
+                <span>Client Initials:</span> <span class="init-box"></span>
+                <span>Date:</span> <span class="init-date"></span>
+            </div>
 
             <h3>9. Property Access &amp; Site Conditions</h3>
             <p>The Client agrees to provide the Contractor with reasonable access to the project site during normal working hours. The Contractor will take reasonable precautions to protect the Client's property, including covering floors and furniture as needed. The Client is responsible for removing personal belongings, valuables, and fragile items from the work area prior to the start of work.</p>
+            <div class="initial-line">
+                <span>Client Initials:</span> <span class="init-box"></span>
+                <span>Date:</span> <span class="init-date"></span>
+            </div>
 
             <h3>10. Cleanup</h3>
             <p>The Contractor will maintain a clean and safe work site throughout the project. Upon completion, the Contractor will remove all debris, tools, and leftover materials from the property. Final broom cleaning of the work area is included.</p>
+            <div class="initial-line">
+                <span>Client Initials:</span> <span class="init-box"></span>
+                <span>Date:</span> <span class="init-date"></span>
+            </div>
 
             <h3>11. Cancellation &amp; Termination</h3>
             <p>Either party may terminate this Agreement with written notice. In the event of cancellation:</p>
             <ul>
-                <li>If the Client cancels before work begins, the deposit is non-refundable to cover scheduling and material procurement costs.</li>
+                <li>If the Client cancels before work begins, the deposit (20%) is <strong>non-refundable</strong> to cover scheduling and material procurement costs.</li>
                 <li>If the Client cancels after work has begun, the Client is responsible for payment of all work completed and materials ordered to date.</li>
                 <li>If the Contractor terminates, the Contractor will refund any payments for work not yet performed.</li>
             </ul>
+            <div class="initial-line">
+                <span>Client Initials:</span> <span class="init-box"></span>
+                <span>Date:</span> <span class="init-date"></span>
+            </div>
 
             <h3>12. Dispute Resolution</h3>
             <p>In the event of a dispute, both parties agree to first attempt to resolve the matter through good-faith negotiation. If a resolution cannot be reached, both parties agree to seek mediation before pursuing any legal action. This Agreement shall be governed by the laws of the State of Missouri.</p>
+            <div class="initial-line">
+                <span>Client Initials:</span> <span class="init-box"></span>
+                <span>Date:</span> <span class="init-date"></span>
+            </div>
 
             <h3>13. Entire Agreement</h3>
             <p>This Agreement, along with any attached change orders or addenda, constitutes the entire agreement between the parties. No verbal agreements or representations shall be binding unless incorporated into this document in writing. Any modifications to this Agreement must be made in writing and signed by both parties.</p>
+            <div class="initial-line">
+                <span>Client Initials:</span> <span class="init-box"></span>
+                <span>Date:</span> <span class="init-date"></span>
+            </div>
+
+            <h3>14. Acknowledgment of Terms</h3>
+            <p>By signing below, both parties acknowledge that they have read, understand, and agree to all terms and conditions outlined in this Agreement, including the payment schedule (20% deposit, 30% at midpoint, 50% upon completion) and the 5% late payment fee on any outstanding balances.</p>
 
             <div class="signature-section">
                 <div class="signature-block">
@@ -364,10 +512,10 @@
         </div>
     </div>
 
-    <p class="disclaimer">This is a standard construction agreement template. Please review all terms carefully before signing. Both parties should retain a signed copy for their records.</p>
+    <p class="disclaimer">This is a standard construction agreement. Please review all terms carefully before signing. Both parties should retain a signed copy for their records.</p>
 
     <div class="btn-section">
-        <button class="print-btn" onclick="window.print()">Print Contract</button>
+        <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
     </div>
 
     <footer>
