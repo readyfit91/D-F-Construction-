@@ -16,25 +16,24 @@
             line-height: 1.6;
         }
         header {
-            background: #fff;
-            color: #111;
+            background: #1a2a3a;
+            color: #fff;
             padding: 20px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #e0e0e0;
         }
         header img {
             height: 60px;
         }
         nav a {
-            color: #111;
+            color: #fff;
             text-decoration: none;
             margin-left: 20px;
             font-weight: bold;
         }
         nav a:hover {
-            color: #999;
+            color: #c8952e;
         }
         .dropdown {
             position: relative;
@@ -49,11 +48,11 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background: #fff;
-            border: 1px solid #e0e0e0;
+            background: #1a2a3a;
+            border: 1px solid #2a3a4a;
             border-radius: 4px;
             min-width: 180px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             z-index: 100;
         }
         .dropdown:hover .dropdown-menu {
@@ -63,20 +62,21 @@
             display: block;
             padding: 10px 16px;
             margin: 0;
-            color: #111;
+            color: #fff;
             font-weight: normal;
         }
         .dropdown-menu a:hover {
-            background: #f2f2f2;
+            background: #2a3a4a;
+            color: #c8952e;
         }
         /* Portfolio / Slideshow */
         .portfolio {
-            background: #111;
+            background: #1a2a3a;
             padding: 60px 20px;
             text-align: center;
         }
         .portfolio h2 {
-            color: #fff;
+            color: #c8952e;
             font-size: 2rem;
             margin-bottom: 30px;
         }
@@ -93,7 +93,7 @@
             max-height: 500px;
             object-fit: contain;
             display: none;
-            background: #111;
+            background: #1a2a3a;
         }
         .slideshow img.active {
             display: block;
@@ -102,8 +102,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255,255,255,0.8);
-            color: #111;
+            background: rgba(200,149,46,0.9);
+            color: #fff;
             border: none;
             font-size: 2rem;
             padding: 10px 16px;
@@ -112,7 +112,7 @@
             z-index: 10;
         }
         .slide-btn:hover {
-            background: #fff;
+            background: #c8952e;
         }
         .slide-btn.prev {
             left: 10px;
@@ -121,7 +121,7 @@
             right: 10px;
         }
         .slide-counter {
-            color: #888;
+            color: #8a9bb0;
             margin-top: 15px;
             font-size: 0.9rem;
         }
@@ -136,7 +136,7 @@
             }
         }
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('1000007800.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(26,42,58,0.75), rgba(26,42,58,0.75)), url('1000007800.jpg') center/cover no-repeat;
             color: #fff;
             text-align: center;
             padding: 120px 20px;
@@ -152,14 +152,14 @@
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto 20px;
-            color: #ccc;
+            color: #c0cdd9;
             opacity: 0;
             animation: fadeUp 0.8s ease-out 0.6s forwards;
         }
         .hero a {
             display: inline-block;
-            background: #fff;
-            color: #111;
+            background: #c8952e;
+            color: #fff;
             padding: 12px 30px;
             text-decoration: none;
             border-radius: 4px;
@@ -168,7 +168,7 @@
             animation: fadeUp 0.8s ease-out 0.9s forwards;
         }
         .hero a:hover {
-            background: #ddd;
+            background: #b0832a;
         }
         .services {
             display: flex;
@@ -178,27 +178,42 @@
             padding: 60px 20px;
             max-width: 1000px;
             margin: 0 auto;
-            background: #fff;
+            background: #f5f0e8;
+        }
+        .services-section {
+            background: #f5f0e8;
+            padding: 0;
+        }
+        .services-section h2 {
+            text-align: center;
+            padding-top: 50px;
+            font-size: 2rem;
+            color: #1a2a3a;
         }
         .service-card {
             flex: 1 1 250px;
             max-width: 300px;
-            background: #f2f2f2;
-            border: 1px solid #e0e0e0;
+            background: #fff;
+            border: 1px solid #e0d8c8;
             border-radius: 8px;
             padding: 30px;
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
         .service-card h3 {
             margin-bottom: 10px;
-            color: #111;
+            color: #1a2a3a;
         }
         .service-card p {
-            color: #555;
+            color: #666;
         }
         footer {
-            background: #111;
-            color: #888;
+            background: #1a2a3a;
+            color: #8a9bb0;
             text-align: center;
             padding: 20px 20px 80px;
             font-size: 0.9rem;
@@ -211,8 +226,8 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: #111;
-            border-top: 1px solid #333;
+            background: #1a2a3a;
+            border-top: 1px solid #2a3a4a;
         }
         .mobile-bar a {
             display: inline-block;
@@ -224,16 +239,23 @@
             font-size: 0.95rem;
         }
         .mobile-bar .call-btn {
-            background: #fff;
-            color: #111;
+            background: #c8952e;
+            color: #fff;
         }
         .mobile-bar .email-btn {
-            background: #111;
+            background: #1a2a3a;
             color: #fff;
         }
         @media (max-width: 768px) {
             .mobile-bar {
                 display: flex;
+            }
+            header {
+                padding: 15px 20px;
+            }
+            nav a {
+                margin-left: 10px;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -256,20 +278,23 @@
         <a href="quote.html">Get a Free Estimate</a>
     </section>
 
-    <section class="services" id="services">
-        <div class="service-card">
-            <h3>New Construction</h3>
-            <p>Custom-built homes and commercial buildings from the ground up.</p>
-        </div>
-        <div class="service-card">
-            <h3>Renovations</h3>
-            <p>Kitchen, bathroom, and whole-home remodeling to transform your space.</p>
-        </div>
-        <div class="service-card">
-            <h3>Roofing &amp; Siding</h3>
-            <p>Durable roofing and siding installations that protect your investment.</p>
-        </div>
-    </section>
+    <div class="services-section">
+        <h2>Our Services</h2>
+        <section class="services" id="services">
+            <div class="service-card">
+                <h3>New Construction</h3>
+                <p>Custom-built homes and commercial buildings from the ground up.</p>
+            </div>
+            <div class="service-card">
+                <h3>Renovations</h3>
+                <p>Kitchen, bathroom, and whole-home remodeling to transform your space.</p>
+            </div>
+            <div class="service-card">
+                <h3>Roofing &amp; Siding</h3>
+                <p>Durable roofing and siding installations that protect your investment.</p>
+            </div>
+        </section>
+    </div>
 
     <section class="portfolio" id="portfolio">
         <h2>Craftsmanship Gallery</h2>
