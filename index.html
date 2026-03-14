@@ -36,6 +36,93 @@
         nav a:hover {
             color: #999;
         }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown > a::after {
+            content: ' \25BE';
+            font-size: 0.7rem;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            min-width: 180px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 16px;
+            margin: 0;
+            color: #111;
+            font-weight: normal;
+        }
+        .dropdown-menu a:hover {
+            background: #f2f2f2;
+        }
+        /* Portfolio / Slideshow */
+        .portfolio {
+            background: #111;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .portfolio h2 {
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .slideshow {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .slideshow img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: none;
+        }
+        .slideshow img.active {
+            display: block;
+        }
+        .slide-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.8);
+            color: #111;
+            border: none;
+            font-size: 2rem;
+            padding: 10px 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            z-index: 10;
+        }
+        .slide-btn:hover {
+            background: #fff;
+        }
+        .slide-btn.prev {
+            left: 10px;
+        }
+        .slide-btn.next {
+            right: 10px;
+        }
+        .slide-counter {
+            color: #888;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
         .hero {
             background: #111;
             color: #fff;
@@ -105,6 +192,7 @@
         <img src="Black logo - no background_240413_201627.jpg" alt="D&F Construction Logo">
         <nav>
             <a href="#services">Services</a>
+            <a href="#portfolio">Our Work</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -130,9 +218,40 @@
         </div>
     </section>
 
+    <section class="portfolio" id="portfolio">
+        <h2>Our Work</h2>
+        <div class="slideshow">
+            <button class="slide-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+            <img src="1000007455.jpg" class="active" alt="Project 1">
+            <img src="1000007455 (1).jpg" alt="Project 2">
+            <img src="1000007800.jpg" alt="Project 3">
+            <img src="1000007979.jpg" alt="Project 4">
+            <img src="1000009283.jpg" alt="Project 5">
+            <img src="1000009527.jpg" alt="Project 6">
+            <img src="1000009547.jpg" alt="Project 7">
+            <button class="slide-btn next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+        <p class="slide-counter"><span id="slideNum">1</span> / 7</p>
+    </section>
+
     <footer id="contact">
         <p>&copy; 2026 D&amp;F Construction. All rights reserved.</p>
         <p>Phone: (314) 537-1270 | Email: damir@dfconstruction.net</p>
     </footer>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slideshow img');
+        const counter = document.getElementById('slideNum');
+
+        function changeSlide(dir) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + dir + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            counter.textContent = currentSlide + 1;
+        }
+
+        // Auto-advance every 4 seconds
+        setInterval(function() { changeSlide(1); }, 4000);
+    </script>
 </body>
 </html>
