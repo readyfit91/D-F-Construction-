@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Quote - D&F Construction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #fff;
+            color: #111;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        header img {
+            height: 60px;
+        }
+        nav a {
+            color: #111;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #999;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .quote-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('1000007979.jpg') center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .quote-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 0.3s forwards;
+        }
+        .quote-hero p {
+            font-size: 1.15rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 0.6s forwards;
+        }
+        .form-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .form-section h2 {
+            font-size: 1.5rem;
+            color: #111;
+            margin-bottom: 10px;
+        }
+        .form-section p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .form-section iframe {
+            width: 100%;
+            min-height: 1400px;
+            border: none;
+            border-radius: 8px;
+        }
+        .contact-strip {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .contact-strip h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .contact-strip p {
+            color: #999;
+            margin-bottom: 5px;
+        }
+        .contact-strip a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact-strip a:hover {
+            color: #ccc;
+        }
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 20px 20px 80px;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+        .mobile-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #111;
+            border-top: 1px solid #333;
+        }
+        .mobile-bar a {
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            padding: 14px 0;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        .mobile-bar .call-btn {
+            background: #fff;
+            color: #111;
+        }
+        .mobile-bar .email-btn {
+            background: #111;
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .mobile-bar {
+                display: flex;
+            }
+            header {
+                padding: 15px 20px;
+            }
+            nav a {
+                margin-left: 10px;
+                font-size: 0.85rem;
+            }
+            .form-section iframe {
+                min-height: 1600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="Black logo - no background_240413_201627.jpg" alt="D&F Construction Logo"></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#portfolio">Gallery</a>
+            <a href="quote.html">Get a Quote</a>
+        </nav>
+    </header>
+
+    <section class="quote-hero">
+        <h1>Request a Free Quote</h1>
+        <p>Tell us about your project and we'll get back to you within 24 hours with a detailed estimate.</p>
+    </section>
+
+    <section class="form-section">
+        <h2>Fill Out the Form Below</h2>
+        <p>Include photos or video of your project so we can provide the most accurate estimate possible.</p>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdj__FCKBAVVwGCO21vH8oZ8tAtvuKvzukTXD1GQL-VMHo3rQ/viewform?embedded=true" loading="lazy">Loading...</iframe>
+    </section>
+
+    <section class="contact-strip">
+        <h3>Prefer to Reach Us Directly?</h3>
+        <p>Call: <a href="tel:3145371270">(314) 537-1270</a></p>
+        <p>Email: <a href="mailto:damir@dfconstruction.net">damir@dfconstruction.net</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 D&amp;F Construction. All rights reserved.</p>
+        <p>Phone: (314) 537-1270 | Email: damir@dfconstruction.net</p>
+    </footer>
+
+    <div class="mobile-bar">
+        <a href="tel:3145371270" class="call-btn">Call Now</a>
+        <a href="mailto:damir@dfconstruction.net" class="email-btn">Email Us</a>
+    </div>
+</body>
+</html>
