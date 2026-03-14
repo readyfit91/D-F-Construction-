@@ -200,8 +200,41 @@
             background: #111;
             color: #888;
             text-align: center;
-            padding: 20px;
+            padding: 20px 20px 80px;
             font-size: 0.9rem;
+        }
+        /* Mobile sticky bottom bar */
+        .mobile-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #111;
+            border-top: 1px solid #333;
+        }
+        .mobile-bar a {
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            padding: 14px 0;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        .mobile-bar .call-btn {
+            background: #fff;
+            color: #111;
+        }
+        .mobile-bar .email-btn {
+            background: #111;
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .mobile-bar {
+                display: flex;
+            }
         }
     </style>
 </head>
@@ -256,6 +289,11 @@
         <p>&copy; 2026 D&amp;F Construction. All rights reserved.</p>
         <p>Phone: (314) 537-1270 | Email: damir@dfconstruction.net</p>
     </footer>
+    <div class="mobile-bar">
+        <a href="tel:3145371270" class="call-btn">Call Now</a>
+        <a href="mailto:damir@dfconstruction.net" class="email-btn">Email Us</a>
+    </div>
+
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slideshow img');
