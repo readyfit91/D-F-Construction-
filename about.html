@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - D&F Construction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #fff;
+            color: #111;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        header img {
+            height: 60px;
+        }
+        nav a {
+            color: #111;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #999;
+        }
+
+        /* About Hero Banner */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('1000009547.jpg') center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .about-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 0.3s forwards;
+        }
+        .about-hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 0.6s forwards;
+        }
+
+        /* Our Story */
+        .story {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 70px 20px;
+            gap: 40px;
+        }
+        .story-text {
+            flex: 1 1 400px;
+        }
+        .story-text h2 {
+            font-size: 2rem;
+            color: #111;
+            margin-bottom: 15px;
+            border-left: 4px solid #111;
+            padding-left: 15px;
+        }
+        .story-text p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        .story-image {
+            flex: 1 1 300px;
+            max-width: 450px;
+        }
+        .story-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Values Section */
+        .values {
+            background: #111;
+            padding: 70px 20px;
+            text-align: center;
+        }
+        .values h2 {
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+        .values-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .value-card {
+            flex: 1 1 200px;
+            max-width: 220px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 30px 20px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: #fff;
+        }
+        .value-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+        .value-card h3 {
+            color: #fff;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        .value-card p {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Stats Bar */
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0;
+            background: #fff;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .stat {
+            flex: 1 1 200px;
+            text-align: center;
+            padding: 40px 20px;
+            border-right: 1px solid #e0e0e0;
+        }
+        .stat:last-child {
+            border-right: none;
+        }
+        .stat h3 {
+            font-size: 2.2rem;
+            color: #111;
+            margin-bottom: 5px;
+        }
+        .stat p {
+            color: #888;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Photo Strip */
+        .photo-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+        .photo-strip img {
+            flex: 1 1 33.33%;
+            max-width: 33.33%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Service Area */
+        .service-area {
+            background: #f5f5f5;
+            padding: 70px 20px;
+            text-align: center;
+        }
+        .service-area h2 {
+            font-size: 2rem;
+            color: #111;
+            margin-bottom: 15px;
+        }
+        .service-area p {
+            color: #555;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+        .service-area .cta {
+            display: inline-block;
+            background: #111;
+            color: #fff;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .service-area .cta:hover {
+            background: #333;
+        }
+
+        /* Insurance Badge */
+        .badge {
+            display: inline-block;
+            border: 2px solid #111;
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: bold;
+            color: #111;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 20px 20px 80px;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile sticky bottom bar */
+        .mobile-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #111;
+            border-top: 1px solid #333;
+        }
+        .mobile-bar a {
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            padding: 14px 0;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        .mobile-bar .call-btn {
+            background: #fff;
+            color: #111;
+        }
+        .mobile-bar .email-btn {
+            background: #111;
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .mobile-bar {
+                display: flex;
+            }
+            .story {
+                padding: 40px 20px;
+            }
+            .photo-strip img {
+                flex: 1 1 100%;
+                max-width: 100%;
+                height: 200px;
+            }
+            .stat {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            header {
+                padding: 15px 20px;
+            }
+            nav a {
+                margin-left: 10px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="Black logo - no background_240413_201627.jpg" alt="D&F Construction Logo"></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#portfolio">Gallery</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <h1>About D&amp;F Construction</h1>
+        <p>Family owned. Community driven. Built on trust.</p>
+    </section>
+
+    <section class="stats">
+        <div class="stat">
+            <h3>10+</h3>
+            <p>Years Experience</p>
+        </div>
+        <div class="stat">
+            <h3>75 mi</h3>
+            <p>Service Radius</p>
+        </div>
+        <div class="stat">
+            <h3>100%</h3>
+            <p>Fully Insured</p>
+        </div>
+        <div class="stat">
+            <h3>Family</h3>
+            <p>Owned &amp; Operated</p>
+        </div>
+    </section>
+
+    <section class="story">
+        <div class="story-text">
+            <h2>Our Story</h2>
+            <p>D&amp;F Construction is a family-owned and operated business built on the belief that every project deserves the same care and attention we'd give our own home. With over a decade of hands-on experience in construction and remodeling, we've earned the trust of homeowners and businesses across the St. Louis area.</p>
+            <p>From our first project to today, our approach has never changed: do honest work, communicate openly, and never cut corners. We treat every job site like it's our own property and every client like they're family.</p>
+            <p>Whether it's a kitchen renovation, new construction, or a commercial buildout, we bring the same level of dedication and craftsmanship to every project we take on.</p>
+        </div>
+        <div class="story-image">
+            <img src="1000007455.jpg" alt="D&F Construction kitchen project">
+        </div>
+    </section>
+
+    <div class="photo-strip">
+        <img src="1000007800.jpg" alt="Project photo">
+        <img src="1000009283.jpg" alt="Project photo">
+        <img src="1000009527.jpg" alt="Project photo">
+    </div>
+
+    <section class="values">
+        <h2>What We Stand For</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">&#9733;</div>
+                <h3>Quality Work</h3>
+                <p>Every detail matters. We deliver results that stand the test of time.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">&#9829;</div>
+                <h3>Customer First</h3>
+                <p>Your satisfaction is our top priority from start to finish.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">&#9745;</div>
+                <h3>Honesty</h3>
+                <p>Straightforward pricing, no hidden fees, no surprises.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">&#9881;</div>
+                <h3>Transparency</h3>
+                <p>Open communication at every stage of your project.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-area">
+        <h2>Proudly Serving St. Louis &amp; Surrounding Areas</h2>
+        <p>We serve the greater St. Louis metropolitan area and surrounding communities within a 75-mile radius. No project is too big or too small.</p>
+        <span class="badge">Licensed &amp; Fully Insured</span>
+        <br><br>
+        <a href="index.html#contact" class="cta">Get Your Free Estimate</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 D&amp;F Construction. All rights reserved.</p>
+        <p>Phone: (314) 537-1270 | Email: damir@dfconstruction.net</p>
+    </footer>
+
+    <div class="mobile-bar">
+        <a href="tel:3145371270" class="call-btn">Call Now</a>
+        <a href="mailto:damir@dfconstruction.net" class="email-btn">Email Us</a>
+    </div>
+</body>
+</html>
