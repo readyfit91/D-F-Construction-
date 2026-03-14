@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Agreement - D&F Construction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #fff;
+            color: #1a2a3a;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        header img {
+            height: 60px;
+        }
+        nav a {
+            color: #1a2a3a;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #c8952e;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .contract-hero {
+            background: linear-gradient(rgba(26,42,58,0.85), rgba(26,42,58,0.85)), url('1000007800.jpg') center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .contract-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 0.3s forwards;
+        }
+        .contract-hero p {
+            font-size: 1.15rem;
+            color: #c8952e;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 0.6s forwards;
+        }
+        .contract-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 30px;
+        }
+        .contract-doc {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 50px 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .contract-doc .company-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1a2a3a;
+        }
+        .contract-doc .company-header h2 {
+            font-size: 1.8rem;
+            color: #1a2a3a;
+            margin-bottom: 5px;
+        }
+        .contract-doc .company-header p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .contract-doc h3 {
+            font-size: 1.15rem;
+            color: #1a2a3a;
+            margin: 25px 0 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .contract-doc p, .contract-doc li {
+            color: #444;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+        .contract-doc ol, .contract-doc ul {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+        .contract-doc li {
+            margin-bottom: 8px;
+        }
+        .fill-line {
+            display: inline-block;
+            border-bottom: 1px solid #333;
+            min-width: 200px;
+            margin: 0 5px;
+        }
+        .fill-line.short {
+            min-width: 100px;
+        }
+        .fill-line.long {
+            min-width: 350px;
+        }
+        .signature-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #1a2a3a;
+        }
+        .signature-block {
+            flex: 1 1 300px;
+        }
+        .signature-block p {
+            margin-bottom: 20px;
+        }
+        .sig-line {
+            border-bottom: 1px solid #333;
+            margin-bottom: 5px;
+            height: 30px;
+        }
+        .sig-label {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        .print-btn {
+            display: inline-block;
+            background: #c8952e;
+            color: #fff;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .print-btn:hover {
+            background: #b0832a;
+        }
+        .download-btn {
+            display: inline-block;
+            background: #1a2a3a;
+            color: #fff;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background: #2a3a4a;
+        }
+        .btn-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .disclaimer {
+            text-align: center;
+            color: #999;
+            font-size: 0.85rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        footer {
+            background: #1a2a3a;
+            color: #8a9bb0;
+            text-align: center;
+            padding: 20px 20px 80px;
+            font-size: 0.9rem;
+        }
+        .mobile-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #1a2a3a;
+            border-top: 1px solid #2a3a4a;
+        }
+        .mobile-bar a {
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            padding: 14px 0;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        .mobile-bar .call-btn {
+            background: #c8952e;
+            color: #fff;
+        }
+        .mobile-bar .email-btn {
+            background: #1a2a3a;
+            color: #fff;
+        }
+        @media print {
+            header, .contract-hero, .btn-section, .disclaimer, footer, .mobile-bar, nav {
+                display: none !important;
+            }
+            .contract-container {
+                padding: 0;
+            }
+            .contract-doc {
+                border: none;
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+        @media (max-width: 768px) {
+            .mobile-bar {
+                display: flex;
+            }
+            header {
+                padding: 15px 20px;
+            }
+            nav a {
+                margin-left: 10px;
+                font-size: 0.85rem;
+            }
+            .contract-doc {
+                padding: 30px 20px;
+            }
+            .fill-line.long {
+                min-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="Black logo - no background_240413_201627.jpg" alt="D&F Construction Logo"></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#portfolio">Gallery</a>
+            <a href="quote.html">Get a Quote</a>
+        </nav>
+    </header>
+
+    <section class="contract-hero">
+        <h1>Construction Agreement</h1>
+        <p>Review our standard contract terms below. Print or download for your records.</p>
+    </section>
+
+    <div class="btn-section">
+        <button class="print-btn" onclick="window.print()">Print Contract</button>
+    </div>
+
+    <div class="contract-container">
+        <div class="contract-doc">
+            <div class="company-header">
+                <h2>D&amp;F Construction</h2>
+                <p>Construction &amp; Remodeling Agreement</p>
+                <p>Phone: (314) 537-1270 | Email: damir@dfconstruction.net</p>
+            </div>
+
+            <p>This Construction Agreement ("Agreement") is entered into as of <span class="fill-line short"></span>, 20<span class="fill-line short"></span>, by and between:</p>
+
+            <p><strong>Contractor:</strong> D&amp;F Construction, serving St. Louis and surrounding areas within 75 miles.</p>
+            <p><strong>Client:</strong> <span class="fill-line long"></span></p>
+            <p><strong>Client Address:</strong> <span class="fill-line long"></span></p>
+            <p><strong>Client Phone:</strong> <span class="fill-line"></span></p>
+            <p><strong>Client Email:</strong> <span class="fill-line"></span></p>
+
+            <h3>1. Scope of Work</h3>
+            <p>The Contractor agrees to furnish all labor, materials, equipment, and services necessary to complete the following work at the project location specified above:</p>
+            <p style="min-height:80px; border:1px solid #ddd; border-radius:4px; padding:10px; background:#fafafa;"></p>
+
+            <h3>2. Project Timeline</h3>
+            <p>Estimated Start Date: <span class="fill-line"></span></p>
+            <p>Estimated Completion Date: <span class="fill-line"></span></p>
+            <p>The Contractor will make every reasonable effort to complete the work within the estimated timeline. Delays due to weather, material shortages, unforeseen conditions, or changes requested by the Client may extend the completion date. The Contractor will promptly communicate any anticipated delays.</p>
+
+            <h3>3. Contract Price &amp; Payment Terms</h3>
+            <p>Total Contract Price: $<span class="fill-line"></span></p>
+            <p>Payment shall be made according to the following schedule:</p>
+            <ul>
+                <li><strong>Deposit:</strong> A deposit of <span class="fill-line short"></span>% of the total contract price is due upon signing this Agreement to secure the project start date.</li>
+                <li><strong>Progress Payment:</strong> <span class="fill-line short"></span>% due at project midpoint or as mutually agreed upon.</li>
+                <li><strong>Final Payment:</strong> Remaining balance due upon satisfactory completion of all work and final walkthrough.</li>
+            </ul>
+            <p>Accepted payment methods: Check, Cash, or Bank Transfer. Payments not received within 15 days of the due date may be subject to a late fee of 1.5% per month.</p>
+
+            <h3>4. Change Orders</h3>
+            <p>Any changes to the scope of work described above must be agreed upon in writing by both parties. Change orders may affect the project timeline and total cost. No additional work will be performed without a signed change order. The Contractor will provide a written estimate for any requested changes before work begins.</p>
+
+            <h3>5. Materials &amp; Workmanship</h3>
+            <p>The Contractor will provide quality materials suitable for the intended purpose unless specific materials are requested by the Client. All work will be performed in a professional manner consistent with industry standards and applicable building codes. The Client may request specific brands, grades, or types of materials, which may affect the total contract price.</p>
+
+            <h3>6. Permits &amp; Inspections</h3>
+            <p>The Contractor will obtain all necessary building permits and schedule required inspections as part of the project. Permit fees are included in the contract price unless otherwise noted. The Client agrees to provide reasonable access to the property for inspections.</p>
+
+            <h3>7. Warranty</h3>
+            <p>The Contractor warrants all workmanship for a period of <strong>one (1) year</strong> from the date of project completion. This warranty covers defects in workmanship and installation. Manufacturer warranties on materials and products are separate and will be passed through to the Client. This warranty does not cover damage caused by misuse, neglect, natural disasters, or modifications made by others.</p>
+
+            <h3>8. Insurance &amp; Liability</h3>
+            <p>The Contractor maintains general liability insurance and workers' compensation coverage. Proof of insurance is available upon request. The Contractor is not responsible for pre-existing conditions, concealed damage, or hazardous materials (such as asbestos or lead paint) discovered during the project. If such conditions are found, the Contractor will stop work and notify the Client before proceeding.</p>
+
+            <h3>9. Property Access &amp; Site Conditions</h3>
+            <p>The Client agrees to provide the Contractor with reasonable access to the project site during normal working hours. The Contractor will take reasonable precautions to protect the Client's property, including covering floors and furniture as needed. The Client is responsible for removing personal belongings, valuables, and fragile items from the work area prior to the start of work.</p>
+
+            <h3>10. Cleanup</h3>
+            <p>The Contractor will maintain a clean and safe work site throughout the project. Upon completion, the Contractor will remove all debris, tools, and leftover materials from the property. Final broom cleaning of the work area is included.</p>
+
+            <h3>11. Cancellation &amp; Termination</h3>
+            <p>Either party may terminate this Agreement with written notice. In the event of cancellation:</p>
+            <ul>
+                <li>If the Client cancels before work begins, the deposit is non-refundable to cover scheduling and material procurement costs.</li>
+                <li>If the Client cancels after work has begun, the Client is responsible for payment of all work completed and materials ordered to date.</li>
+                <li>If the Contractor terminates, the Contractor will refund any payments for work not yet performed.</li>
+            </ul>
+
+            <h3>12. Dispute Resolution</h3>
+            <p>In the event of a dispute, both parties agree to first attempt to resolve the matter through good-faith negotiation. If a resolution cannot be reached, both parties agree to seek mediation before pursuing any legal action. This Agreement shall be governed by the laws of the State of Missouri.</p>
+
+            <h3>13. Entire Agreement</h3>
+            <p>This Agreement, along with any attached change orders or addenda, constitutes the entire agreement between the parties. No verbal agreements or representations shall be binding unless incorporated into this document in writing. Any modifications to this Agreement must be made in writing and signed by both parties.</p>
+
+            <div class="signature-section">
+                <div class="signature-block">
+                    <p><strong>Contractor - D&amp;F Construction</strong></p>
+                    <div class="sig-line"></div>
+                    <p class="sig-label">Signature</p>
+                    <div class="sig-line"></div>
+                    <p class="sig-label">Printed Name</p>
+                    <div class="sig-line"></div>
+                    <p class="sig-label">Date</p>
+                </div>
+                <div class="signature-block">
+                    <p><strong>Client</strong></p>
+                    <div class="sig-line"></div>
+                    <p class="sig-label">Signature</p>
+                    <div class="sig-line"></div>
+                    <p class="sig-label">Printed Name</p>
+                    <div class="sig-line"></div>
+                    <p class="sig-label">Date</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="disclaimer">This is a standard construction agreement template. Please review all terms carefully before signing. Both parties should retain a signed copy for their records.</p>
+
+    <div class="btn-section">
+        <button class="print-btn" onclick="window.print()">Print Contract</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 D&amp;F Construction. All rights reserved.</p>
+        <p>Phone: (314) 537-1270 | Email: damir@dfconstruction.net</p>
+    </footer>
+
+    <div class="mobile-bar">
+        <a href="tel:3145371270" class="call-btn">Call Now</a>
+        <a href="mailto:damir@dfconstruction.net" class="email-btn">Email Us</a>
+    </div>
+</body>
+</html>
