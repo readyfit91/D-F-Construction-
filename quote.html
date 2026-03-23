@@ -15,11 +15,11 @@
         /* ── Header ── */
         header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            background: #fff;
             padding: 16px 48px; display: flex; align-items: center; justify-content: space-between;
-            border-bottom: 1px solid rgba(0,0,0,0.06); transition: all 0.3s ease;
+            border-bottom: 1px solid #e8e8e8; transition: all 0.3s ease;
         }
-        header.scrolled { padding: 10px 48px; box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+        header.scrolled { padding: 10px 48px; box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
         .logo-link { display: flex; align-items: center; text-decoration: none; gap: 12px; }
         .logo-link img { height: 50px; transition: height 0.3s ease; }
         header.scrolled .logo-link img { height: 40px; }
@@ -43,7 +43,7 @@
         }
         .quote-hero-content { position: relative; z-index: 2; padding: 120px 20px 80px; }
         .quote-hero-content .hero-logo { margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s ease-out 0.2s forwards; }
-        .quote-hero-content .hero-logo svg { height: 60px; }
+        .quote-hero-content .hero-logo img { height: 70px; background: #fff; border-radius: 12px; padding: 8px 18px; }
         .quote-hero h1 {
             font-family: 'Playfair Display', serif; font-size: 3rem; color: #fff;
             margin-bottom: 12px; opacity: 0; animation: fadeUp 0.8s ease-out 0.3s forwards;
@@ -84,7 +84,7 @@
         /* ── Footer ── */
         footer { background: #0f1923; border-top: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.4); text-align: center; padding: 40px 20px 100px; font-size: 0.85rem; }
         .footer-logo { margin-bottom: 20px; }
-        .footer-logo svg { height: 40px; opacity: 0.6; }
+        .footer-logo img { height: 50px; background: #fff; border-radius: 8px; padding: 6px 14px; }
         footer p { margin-bottom: 4px; }
         footer a { color: #c8952e; text-decoration: none; }
         .mobile-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: #0f1923; border-top: 1px solid rgba(255,255,255,0.08); }
@@ -136,11 +136,7 @@
         <div class="quote-hero-bg"></div>
         <div class="quote-hero-content">
             <div class="hero-logo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 60" fill="none">
-                    <text x="60" y="28" text-anchor="middle" font-family="'Playfair Display',serif" font-weight="700" font-size="26" fill="#fff">D&amp;F</text>
-                    <line x1="20" y1="36" x2="100" y2="36" stroke="#c8952e" stroke-width="1.5"/>
-                    <text x="60" y="50" text-anchor="middle" font-family="'Inter',sans-serif" font-weight="500" font-size="8" fill="rgba(255,255,255,0.7)" letter-spacing="3">CONSTRUCTION</text>
-                </svg>
+                <img src="Black logo - no background_240413_201627.jpg" alt="D&F Construction Logo">
             </div>
             <h1>Request a Free Quote</h1>
             <p>Tell us about your project and we'll get back to you within 24 hours with a detailed estimate.</p>
@@ -162,10 +158,7 @@
 
     <footer>
         <div class="footer-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" fill="none">
-                <text x="80" y="22" text-anchor="middle" font-family="'Playfair Display',serif" font-weight="700" font-size="22" fill="#fff">D&amp;F</text>
-                <text x="80" y="40" text-anchor="middle" font-family="'Inter',sans-serif" font-weight="400" font-size="8" fill="rgba(255,255,255,0.5)" letter-spacing="4">CONSTRUCTION</text>
-            </svg>
+            <img src="Black logo - no background_240413_201627.jpg" alt="D&F Construction Logo">
         </div>
         <p>&copy; 2026 D&amp;F Construction. All rights reserved.</p>
         <p>Phone: <a href="tel:3145371270">(314) 537-1270</a> | Email: <a href="mailto:damir@dfconstruction.net">damir@dfconstruction.net</a></p>
