@@ -88,6 +88,23 @@
         .form-group .file-hint {
             font-size: 0.8rem; color: #999; margin-top: 6px;
         }
+        .photo-uploads { display: flex; flex-direction: column; gap: 10px; }
+        .photo-slot {
+            display: flex; align-items: center; gap: 12px;
+            background: #fff; border: 1px solid #e0ddd6; border-radius: 12px;
+            padding: 10px 14px; transition: border-color 0.3s ease;
+        }
+        .photo-slot:hover { border-color: #c8952e; }
+        .photo-slot input[type="file"] {
+            flex: 1; border: none; padding: 4px 0; background: transparent;
+        }
+        .photo-slot .preview-thumb {
+            width: 48px; height: 48px; border-radius: 8px; object-fit: cover;
+            display: none; border: 2px solid #c8952e;
+        }
+        .photo-slot .slot-label {
+            font-size: 0.8rem; color: #999; font-weight: 600; white-space: nowrap;
+        }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         .form-submit {
             display: inline-flex; align-items: center; justify-content: center; gap: 10px;
@@ -235,9 +252,25 @@
             </div>
 
             <div class="form-group">
-                <label for="photos">Upload Photos of Your Project</label>
-                <input type="file" id="photos" name="attachment" accept="image/*" multiple>
-                <p class="file-hint">You can select multiple photos. Accepted formats: JPG, PNG, HEIC</p>
+                <label>Upload Photos of Your Project</label>
+                <div class="photo-uploads">
+                    <div class="photo-slot">
+                        <span class="slot-label">Photo 1</span>
+                        <input type="file" name="attachment" accept="image/*" onchange="previewPhoto(this)">
+                        <img class="preview-thumb" alt="Preview">
+                    </div>
+                    <div class="photo-slot">
+                        <span class="slot-label">Photo 2</span>
+                        <input type="file" name="attachment2" accept="image/*" onchange="previewPhoto(this)">
+                        <img class="preview-thumb" alt="Preview">
+                    </div>
+                    <div class="photo-slot">
+                        <span class="slot-label">Photo 3</span>
+                        <input type="file" name="attachment3" accept="image/*" onchange="previewPhoto(this)">
+                        <img class="preview-thumb" alt="Preview">
+                    </div>
+                </div>
+                <p class="file-hint">Up to 3 photos. Accepted formats: JPG, PNG, HEIC (max 5 MB each)</p>
             </div>
 
             <button type="submit" class="form-submit">
@@ -278,6 +311,20 @@
     </div>
 
     <script>
+        function previewPhoto(input) {
+            var thumb = input.parentElement.querySelector('.preview-thumb');
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    thumb.src = e.target.result;
+                    thumb.style.display = 'block';
+                };
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                thumb.style.display = 'none';
+                thumb.src = '';
+            }
+        }
         var heroBg = document.querySelector('.quote-hero-bg');
         var ticking = false;
         window.addEventListener('scroll', function() {
