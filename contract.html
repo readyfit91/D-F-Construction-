@@ -38,8 +38,8 @@
             text-align: center; overflow: hidden;
         }
         .contract-hero-bg {
-            position: absolute; inset: 0; background: url('1000007800.jpg') center/cover no-repeat;
-            filter: brightness(0.2); transform: scale(1.05);
+            position: absolute; inset: -20%; background: url('1000007800.jpg') center/cover no-repeat;
+            filter: brightness(0.2); will-change: transform;
         }
         .contract-hero-content { position: relative; z-index: 2; padding: 120px 20px 80px; }
         .contract-hero-content .hero-logo { margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s ease-out 0.2s forwards; }
@@ -370,8 +370,20 @@
     </div>
 
     <script>
+        var heroBg = document.querySelector('.contract-hero-bg');
+        var ticking = false;
         window.addEventListener('scroll', function() {
-            document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    var scrollY = window.scrollY;
+                    document.querySelector('header').classList.toggle('scrolled', scrollY > 50);
+                    if (heroBg && scrollY < window.innerHeight * 1.5) {
+                        heroBg.style.transform = 'translateY(' + (scrollY * 0.35) + 'px)';
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
         document.querySelectorAll('nav a').forEach(function(a) {
             a.addEventListener('click', function() { document.querySelector('nav').classList.remove('open'); });
