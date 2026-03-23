@@ -23,8 +23,8 @@
         .logo-link { display: flex; align-items: center; text-decoration: none; gap: 12px; }
         .logo-link img { height: 50px; transition: height 0.3s ease; }
         header.scrolled .logo-link img { height: 40px; }
-        nav { display: flex; align-items: center; gap: 8px; }
-        nav a { color: #1a2a3a; text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 8px 16px; border-radius: 8px; transition: all 0.2s ease; }
+        nav { display: flex; align-items: center; gap: 4px; }
+        nav a { color: #1a2a3a; text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 10px 18px; border-radius: 8px; transition: all 0.2s ease; white-space: nowrap; }
         nav a:hover { background: rgba(200,149,46,0.1); color: #c8952e; }
         nav a.cta-nav { background: #c8952e; color: #fff; font-weight: 600; }
         nav a.cta-nav:hover { background: #b5842a; transform: translateY(-1px); }
@@ -143,8 +143,11 @@
             nav a { font-size: 1.1rem; padding: 14px 20px; width: 100%; text-align: left; }
             .hamburger { display: flex; }
             .policy-hero h1 { font-size: 2rem; }
-            .policy-card { padding: 32px 24px; }
-            .payment-table th, .payment-table td { padding: 12px 14px; font-size: 0.85rem; }
+            .policy-card { padding: 28px 18px; }
+            .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -18px; padding: 0 18px; }
+            .payment-table { min-width: 520px; }
+            .payment-table th, .payment-table td { padding: 10px 12px; font-size: 0.8rem; white-space: nowrap; }
+            .late-fee-box { padding: 18px 16px; }
         }
     </style>
 </head>
@@ -195,36 +198,38 @@
             </div>
             <h2>Payment Schedule</h2>
 
-            <table class="payment-table">
-                <thead>
-                    <tr>
-                        <th>Payment</th>
-                        <th>Percentage</th>
-                        <th>When Due</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Deposit</td>
-                        <td>20%</td>
-                        <td>Upon acceptance &amp; signing of this Agreement</td>
-                        <td>$</td>
-                    </tr>
-                    <tr>
-                        <td>Progress Payment</td>
-                        <td>30%</td>
-                        <td>At the halfway completion point of the project</td>
-                        <td>$</td>
-                    </tr>
-                    <tr>
-                        <td>Final Payment</td>
-                        <td>50%</td>
-                        <td>On the last day of project completion</td>
-                        <td>$</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-scroll">
+                <table class="payment-table">
+                    <thead>
+                        <tr>
+                            <th>Payment</th>
+                            <th>Percentage</th>
+                            <th>When Due</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Deposit</td>
+                            <td>20%</td>
+                            <td>Upon acceptance &amp; signing of this Agreement</td>
+                            <td>$</td>
+                        </tr>
+                        <tr>
+                            <td>Progress Payment</td>
+                            <td>30%</td>
+                            <td>At the halfway completion point of the project</td>
+                            <td>$</td>
+                        </tr>
+                        <tr>
+                            <td>Final Payment</td>
+                            <td>50%</td>
+                            <td>On the last day of project completion</td>
+                            <td>$</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <p><span class="payment-method">Accepted: Cash or Check only</span></p>
 
