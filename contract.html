@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Construction Agreement - D&F Construction</title>
+    <title>Policy - D&F Construction</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -33,80 +33,81 @@
 
         /* ── Hero ── */
         @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .contract-hero {
+        .policy-hero {
             position: relative; min-height: 50vh; display: flex; align-items: center; justify-content: center;
             text-align: center; overflow: hidden;
         }
-        .contract-hero-bg {
+        .policy-hero-bg {
             position: absolute; inset: -20%; background: url('1000007800.jpg') center/cover no-repeat;
             filter: brightness(0.2); will-change: transform;
         }
-        .contract-hero-content { position: relative; z-index: 2; padding: 120px 20px 80px; }
-        .contract-hero-content .hero-logo { margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s ease-out 0.2s forwards; }
-        .contract-hero-content .hero-logo img { height: 70px; background: #fff; border-radius: 12px; padding: 8px 18px; }
-        .contract-hero h1 {
+        .policy-hero-content { position: relative; z-index: 2; padding: 120px 20px 80px; }
+        .policy-hero-content .hero-logo { margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s ease-out 0.2s forwards; }
+        .policy-hero-content .hero-logo img { height: 70px; background: #fff; border-radius: 12px; padding: 8px 18px; }
+        .policy-hero h1 {
             font-family: 'Playfair Display', serif; font-size: 3rem; color: #fff;
             margin-bottom: 12px; opacity: 0; animation: fadeUp 0.8s ease-out 0.3s forwards;
         }
-        .contract-hero p {
+        .policy-hero p {
             font-size: 1.05rem; color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto;
             opacity: 0; animation: fadeUp 0.8s ease-out 0.5s forwards; font-weight: 300;
         }
 
-        /* ── Contract Document ── */
-        .contract-container { max-width: 900px; margin: 0 auto; padding: 50px 30px; }
-        .contract-doc {
+        /* ── Policy Content ── */
+        .policy-container {
+            max-width: 800px; margin: 0 auto; padding: 60px 30px;
+        }
+        .policy-card {
             background: #fff; border: 1px solid #f0ece4; border-radius: 16px;
-            padding: 60px 50px; box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+            padding: 48px 44px; box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+            margin-bottom: 30px;
         }
-        .contract-doc .company-header {
-            text-align: center; margin-bottom: 36px; padding-bottom: 24px;
-            border-bottom: 2px solid #1a2a3a;
+        .policy-card .card-icon {
+            width: 56px; height: 56px; border-radius: 14px;
+            background: linear-gradient(135deg, rgba(200,149,46,0.12), rgba(200,149,46,0.04));
+            display: flex; align-items: center; justify-content: center; margin-bottom: 24px;
         }
-        .contract-doc .company-header .doc-logo { margin-bottom: 12px; }
-        .contract-doc .company-header .doc-logo img { height: 60px; }
-        .contract-doc .company-header h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #1a2a3a; margin-bottom: 6px; }
-        .contract-doc .company-header p { color: #888; font-size: 0.9rem; }
-        .contract-doc h3 {
-            font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #1a2a3a;
-            margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #f0ece4;
+        .policy-card .card-icon svg { width: 26px; height: 26px; color: #c8952e; }
+        .policy-card h2 {
+            font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #1a2a3a;
+            margin-bottom: 16px;
         }
-        .contract-doc p, .contract-doc li { color: #555; font-size: 0.95rem; margin-bottom: 10px; }
-        .contract-doc ol, .contract-doc ul { padding-left: 25px; margin-bottom: 15px; }
-        .contract-doc li { margin-bottom: 8px; }
-        .fill-line { display: inline-block; border-bottom: 1px solid #aaa; min-width: 200px; margin: 0 5px; }
-        .fill-line.short { min-width: 100px; }
-        .fill-line.long { min-width: 350px; }
-        .initial-line { display: inline-flex; align-items: center; margin: 15px 0; gap: 10px; }
-        .initial-line .init-box { display: inline-block; border: 1px solid #aaa; width: 60px; height: 30px; border-radius: 6px; }
-        .initial-line .init-date { display: inline-block; border-bottom: 1px solid #aaa; min-width: 120px; }
-        .initial-label { font-size: 0.8rem; color: #888; }
-        .signature-section { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 40px; padding-top: 30px; border-top: 2px solid #1a2a3a; }
-        .signature-block { flex: 1 1 300px; }
-        .signature-block p { margin-bottom: 20px; }
-        .sig-line { border-bottom: 1px solid #aaa; margin-bottom: 5px; height: 30px; }
-        .sig-label { font-size: 0.85rem; color: #888; }
+        .policy-card p {
+            color: #555; font-size: 1rem; margin-bottom: 12px; line-height: 1.8;
+        }
 
-        .print-btn {
-            display: inline-flex; align-items: center; gap: 8px; background: #c8952e; color: #fff;
-            padding: 14px 36px; text-decoration: none; border-radius: 50px; font-weight: 600;
-            font-size: 0.95rem; border: none; cursor: pointer; transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
+        /* ── Payment Table ── */
+        .payment-table { width: 100%; border-collapse: collapse; margin: 24px 0; border-radius: 12px; overflow: hidden; }
+        .payment-table th, .payment-table td {
+            padding: 16px 20px; text-align: left; font-size: 0.95rem;
         }
-        .print-btn:hover { background: #b5842a; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(200,149,46,0.35); }
-        .btn-section { text-align: center; margin: 30px 0; }
-        .disclaimer { text-align: center; color: #999; font-size: 0.85rem; max-width: 600px; margin: 0 auto 30px; }
-
-        .payment-table { width: 100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden; }
-        .payment-table th, .payment-table td { border: 1px solid #f0ece4; padding: 12px 16px; text-align: left; font-size: 0.95rem; }
-        .payment-table th { background: #1a2a3a; color: #fff; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.5px; }
+        .payment-table th {
+            background: #1a2a3a; color: #fff; font-weight: 600; font-size: 0.8rem;
+            letter-spacing: 1px; text-transform: uppercase;
+        }
+        .payment-table td { border-bottom: 1px solid #f0ece4; color: #555; }
+        .payment-table tr:last-child td { border-bottom: none; }
         .payment-table tr:nth-child(even) { background: #faf8f4; }
+        .payment-table tr:hover { background: #f5f0e8; }
+        .payment-table td:first-child { font-weight: 600; color: #1a2a3a; }
 
-        .highlight-box {
-            background: linear-gradient(135deg, #fef9f0, #fff8ed); border-left: 4px solid #c8952e;
-            padding: 18px 24px; margin: 15px 0; border-radius: 0 12px 12px 0;
+        .payment-method {
+            display: inline-block; background: #f5f0e8; border-radius: 8px;
+            padding: 10px 20px; font-weight: 600; color: #1a2a3a;
+            font-size: 0.9rem; margin-top: 8px;
         }
-        .highlight-box p { margin-bottom: 5px; }
+
+        /* ── Late Fee Box ── */
+        .late-fee-box {
+            background: linear-gradient(135deg, #fef3e2, #fff8ed);
+            border-left: 4px solid #c8952e; border-radius: 0 14px 14px 0;
+            padding: 24px 28px; margin-top: 28px;
+        }
+        .late-fee-box h3 {
+            font-family: 'Playfair Display', serif; font-size: 1.1rem;
+            color: #1a2a3a; margin-bottom: 8px;
+        }
+        .late-fee-box p { color: #555; font-size: 0.95rem; margin-bottom: 0; }
 
         /* ── Footer ── */
         footer { background: #0f1923; border-top: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.4); text-align: center; padding: 40px 20px 100px; font-size: 0.85rem; }
@@ -119,10 +120,13 @@
         .mobile-bar .call-btn { background: #c8952e; color: #fff; }
         .mobile-bar .email-btn { background: #0f1923; color: #fff; }
 
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
         @media print {
-            header, .contract-hero, .btn-section, .disclaimer, footer, .mobile-bar, nav { display: none !important; }
-            .contract-container { padding: 0; }
-            .contract-doc { border: none; box-shadow: none; padding: 20px; border-radius: 0; }
+            header, .policy-hero, footer, .mobile-bar, nav { display: none !important; }
+            .policy-container { padding: 0; }
+            .policy-card { border: none; box-shadow: none; padding: 20px 0; border-radius: 0; }
         }
         @media (max-width: 768px) {
             .mobile-bar { display: flex; }
@@ -137,10 +141,9 @@
             nav.open { right: 0; }
             nav a { font-size: 1.1rem; padding: 14px 20px; width: 100%; text-align: left; }
             .hamburger { display: flex; }
-            .contract-hero h1 { font-size: 2rem; }
-            .contract-doc { padding: 30px 20px; border-radius: 12px; }
-            .fill-line.long { min-width: 150px; }
-            .payment-table th, .payment-table td { padding: 8px 10px; font-size: 0.85rem; }
+            .policy-hero h1 { font-size: 2rem; }
+            .policy-card { padding: 32px 24px; }
+            .payment-table th, .payment-table td { padding: 12px 14px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -157,203 +160,79 @@
             <a href="about.html">About</a>
             <a href="index.html#services">Services</a>
             <a href="index.html#portfolio">Gallery</a>
-            <a href="contract.html">Contract</a>
+            <a href="contract.html">Policy</a>
             <a href="quote.html" class="cta-nav">Get a Quote</a>
         </nav>
     </header>
 
-    <section class="contract-hero">
-        <div class="contract-hero-bg"></div>
-        <div class="contract-hero-content">
+    <section class="policy-hero">
+        <div class="policy-hero-bg"></div>
+        <div class="policy-hero-content">
             <div class="hero-logo">
                 <img src="Black logo - no background_240413_201627.jpg" alt="D&F Construction Logo">
             </div>
-            <h1>Construction Agreement</h1>
-            <p>Review our standard contract terms below. Print or save as PDF for your records.</p>
+            <h1>Our Policy</h1>
+            <p>Transparency and trust are the foundation of every project we take on.</p>
         </div>
     </section>
 
-    <div class="btn-section">
-        <button class="print-btn" onclick="window.print()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
-            Print / Save as PDF
-        </button>
-    </div>
+    <div class="policy-container">
 
-    <div class="contract-container">
-        <div class="contract-doc">
-            <div class="company-header">
-                <div class="doc-logo">
-                    <img src="Black logo - no background_240413_201627.jpg" alt="D&F Construction Logo">
-                </div>
-                <p>Construction &amp; Remodeling Agreement</p>
-                <p>Phone: (314) 537-1270 | Email: damir@dfconstruction.net</p>
-                <p>Serving St. Louis &amp; Surrounding Areas (75-Mile Radius)</p>
+        <!-- Permits & Inspections -->
+        <div class="policy-card reveal">
+            <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.746 3.746 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
             </div>
+            <h2>Permits &amp; Inspections</h2>
+            <p>The Contractor will obtain all necessary building permits and schedule required inspections as part of the project. Permit fees are not included in the contractual fees of the work being done.</p>
+        </div>
 
-            <p>This Construction Agreement ("Agreement") is entered into as of <span class="fill-line short"></span>, 20<span class="fill-line short"></span>, by and between:</p>
-
-            <p><strong>Contractor:</strong> D&amp;F Construction</p>
-            <p><strong>Client Name:</strong> <span class="fill-line long"></span></p>
-            <p><strong>Client Address:</strong> <span class="fill-line long"></span></p>
-            <p><strong>Client Phone:</strong> <span class="fill-line"></span></p>
-            <p><strong>Client Email:</strong> <span class="fill-line"></span></p>
-            <p><strong>Project Address (if different):</strong> <span class="fill-line long"></span></p>
-
-            <h3>1. Scope of Work</h3>
-            <p>The Contractor agrees to furnish all labor, materials, equipment, and services necessary to complete the following work at the project location specified above:</p>
-            <p style="min-height:80px; border:1px solid #e0e0e0; border-radius:8px; padding:10px; background:#faf8f4;"></p>
-            <div class="initial-line">
-                <span>Client Initials:</span> <span class="init-box"></span>
-                <span>Date:</span> <span class="init-date"></span>
+        <!-- Payment Terms -->
+        <div class="policy-card reveal">
+            <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>
             </div>
-
-            <h3>2. Project Timeline</h3>
-            <p>Estimated Start Date: <span class="fill-line"></span></p>
-            <p>Estimated Completion Date: <span class="fill-line"></span></p>
-            <p>The Contractor will make every reasonable effort to complete the work within the estimated timeline. Delays due to weather, material shortages, unforeseen conditions, or changes requested by the Client may extend the completion date. The Contractor will promptly communicate any anticipated delays.</p>
-            <div class="initial-line">
-                <span>Client Initials:</span> <span class="init-box"></span>
-                <span>Date:</span> <span class="init-date"></span>
-            </div>
-
-            <h3>3. Contract Price &amp; Payment Terms</h3>
-            <p><strong>Total Contract Price: $</strong><span class="fill-line"></span></p>
-
-            <div class="highlight-box">
-                <p><strong>Payment is required according to the following schedule. By initialing below, the Client acknowledges and agrees to these terms:</strong></p>
-            </div>
+            <h2>Payment Schedule</h2>
 
             <table class="payment-table">
                 <thead>
-                    <tr><th>Payment</th><th>Percentage</th><th>When Due</th><th>Amount</th></tr>
+                    <tr>
+                        <th>Payment</th>
+                        <th>Percentage</th>
+                        <th>When Due</th>
+                        <th>Amount</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Deposit</strong></td><td>20%</td><td>Upon acceptance &amp; signing of this Agreement</td><td>$<span class="fill-line short"></span></td></tr>
-                    <tr><td><strong>Progress Payment</strong></td><td>30%</td><td>At the halfway completion point of the project</td><td>$<span class="fill-line short"></span></td></tr>
-                    <tr><td><strong>Final Payment</strong></td><td>50%</td><td>On the last day of project completion</td><td>$<span class="fill-line short"></span></td></tr>
+                    <tr>
+                        <td>Deposit</td>
+                        <td>20%</td>
+                        <td>Upon acceptance &amp; signing of this Agreement</td>
+                        <td>$</td>
+                    </tr>
+                    <tr>
+                        <td>Progress Payment</td>
+                        <td>30%</td>
+                        <td>At the halfway completion point of the project</td>
+                        <td>$</td>
+                    </tr>
+                    <tr>
+                        <td>Final Payment</td>
+                        <td>50%</td>
+                        <td>On the last day of project completion</td>
+                        <td>$</td>
+                    </tr>
                 </tbody>
             </table>
 
-            <p>Accepted payment methods: <strong>Cash or Check only.</strong></p>
+            <p><span class="payment-method">Accepted: Cash or Check only</span></p>
 
-            <div class="highlight-box">
-                <p><strong>LATE PAYMENT FEE:</strong> Any outstanding balance not paid by the due date specified above will be subject to an additional <strong>5% late fee</strong> applied to the unpaid balance. This fee will be assessed immediately upon the payment becoming past due.</p>
-            </div>
-
-            <div class="initial-line">
-                <span>Client Initials:</span> <span class="init-box"></span>
-                <span>Date:</span> <span class="init-date"></span>
-            </div>
-
-            <h3>4. Change Orders</h3>
-            <p>Any changes to the scope of work described above must be agreed upon in writing by both parties. Change orders may affect the project timeline and total cost. No additional work will be performed without a signed change order. The Contractor will provide a written estimate for any requested changes before work begins.</p>
-            <div class="initial-line">
-                <span>Client Initials:</span> <span class="init-box"></span>
-                <span>Date:</span> <span class="init-date"></span>
-            </div>
-
-            <h3>5. Materials &amp; Workmanship</h3>
-            <p>The Contractor will provide quality materials suitable for the intended purpose unless specific materials are requested by the Client. All work will be performed in a professional manner consistent with industry standards and applicable building codes. The Client may request specific brands, grades, or types of materials, which may affect the total contract price.</p>
-            <div class="initial-line">
-                <span>Client Initials:</span> <span class="init-box"></span>
-                <span>Date:</span> <span class="init-date"></span>
-            </div>
-
-            <h3>6. Permits &amp; Inspections</h3>
-            <p>The Contractor will obtain all necessary building permits and schedule required inspections as part of the project. Permit fees are included in the contract price unless otherwise noted. The Client agrees to provide reasonable access to the property for inspections.</p>
-            <div class="initial-line">
-                <span>Client Initials:</span> <span class="init-box"></span>
-                <span>Date:</span> <span class="init-date"></span>
-            </div>
-
-            <h3>7. Warranty</h3>
-            <p>The Contractor warrants all workmanship for a period of <strong>one (1) year</strong> from the date of project completion. This warranty covers defects in workmanship and installation. Manufacturer warranties on materials and products are separate and will be passed through to the Client. This warranty does not cover damage caused by misuse, neglect, natural disasters, or modifications made by others.</p>
-            <div class="initial-line">
-                <span>Client Initials:</span> <span class="init-box"></span>
-                <span>Date:</span> <span class="init-date"></span>
-            </div>
-
-            <h3>8. Insurance &amp; Liability</h3>
-            <p>The Contractor maintains general liability insurance and workers' compensation coverage. Proof of insurance is available upon request. The Contractor is not responsible for pre-existing conditions, concealed damage, or hazardous materials (such as asbestos or lead paint) discovered during the project. If such conditions are found, the Contractor will stop work and notify the Client before proceeding.</p>
-            <div class="initial-line">
-                <span>Client Initials:</span> <span class="init-box"></span>
-                <span>Date:</span> <span class="init-date"></span>
-            </div>
-
-            <h3>9. Property Access &amp; Site Conditions</h3>
-            <p>The Client agrees to provide the Contractor with reasonable access to the project site during normal working hours. The Contractor will take reasonable precautions to protect the Client's property, including covering floors and furniture as needed. The Client is responsible for removing personal belongings, valuables, and fragile items from the work area prior to the start of work.</p>
-            <div class="initial-line">
-                <span>Client Initials:</span> <span class="init-box"></span>
-                <span>Date:</span> <span class="init-date"></span>
-            </div>
-
-            <h3>10. Cleanup</h3>
-            <p>The Contractor will maintain a clean and safe work site throughout the project. Upon completion, the Contractor will remove all debris, tools, and leftover materials from the property. Final broom cleaning of the work area is included.</p>
-            <div class="initial-line">
-                <span>Client Initials:</span> <span class="init-box"></span>
-                <span>Date:</span> <span class="init-date"></span>
-            </div>
-
-            <h3>11. Cancellation &amp; Termination</h3>
-            <p>Either party may terminate this Agreement with written notice. In the event of cancellation:</p>
-            <ul>
-                <li>If the Client cancels before work begins, the deposit (20%) is <strong>non-refundable</strong> to cover scheduling and material procurement costs.</li>
-                <li>If the Client cancels after work has begun, the Client is responsible for payment of all work completed and materials ordered to date.</li>
-                <li>If the Contractor terminates, the Contractor will refund any payments for work not yet performed.</li>
-            </ul>
-            <div class="initial-line">
-                <span>Client Initials:</span> <span class="init-box"></span>
-                <span>Date:</span> <span class="init-date"></span>
-            </div>
-
-            <h3>12. Dispute Resolution</h3>
-            <p>In the event of a dispute, both parties agree to first attempt to resolve the matter through good-faith negotiation. If a resolution cannot be reached, both parties agree to seek mediation before pursuing any legal action. This Agreement shall be governed by the laws of the State of Missouri.</p>
-            <div class="initial-line">
-                <span>Client Initials:</span> <span class="init-box"></span>
-                <span>Date:</span> <span class="init-date"></span>
-            </div>
-
-            <h3>13. Entire Agreement</h3>
-            <p>This Agreement, along with any attached change orders or addenda, constitutes the entire agreement between the parties. No verbal agreements or representations shall be binding unless incorporated into this document in writing. Any modifications to this Agreement must be made in writing and signed by both parties.</p>
-            <div class="initial-line">
-                <span>Client Initials:</span> <span class="init-box"></span>
-                <span>Date:</span> <span class="init-date"></span>
-            </div>
-
-            <h3>14. Acknowledgment of Terms</h3>
-            <p>By signing below, both parties acknowledge that they have read, understand, and agree to all terms and conditions outlined in this Agreement, including the payment schedule (20% deposit, 30% at midpoint, 50% upon completion) and the 5% late payment fee on any outstanding balances.</p>
-
-            <div class="signature-section">
-                <div class="signature-block">
-                    <p><strong>Contractor - D&amp;F Construction</strong></p>
-                    <div class="sig-line"></div>
-                    <p class="sig-label">Signature</p>
-                    <div class="sig-line"></div>
-                    <p class="sig-label">Printed Name</p>
-                    <div class="sig-line"></div>
-                    <p class="sig-label">Date</p>
-                </div>
-                <div class="signature-block">
-                    <p><strong>Client</strong></p>
-                    <div class="sig-line"></div>
-                    <p class="sig-label">Signature</p>
-                    <div class="sig-line"></div>
-                    <p class="sig-label">Printed Name</p>
-                    <div class="sig-line"></div>
-                    <p class="sig-label">Date</p>
-                </div>
+            <div class="late-fee-box">
+                <h3>Late Payment Fee</h3>
+                <p>Any outstanding balance not paid by the due date specified above will be subject to an additional <strong>5% late fee</strong> applied to the unpaid balance. This fee will be assessed immediately upon the payment becoming past due.</p>
             </div>
         </div>
-    </div>
 
-    <p class="disclaimer">This is a standard construction agreement. Please review all terms carefully before signing. Both parties should retain a signed copy for their records.</p>
-
-    <div class="btn-section">
-        <button class="print-btn" onclick="window.print()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
-            Print / Save as PDF
-        </button>
     </div>
 
     <footer>
@@ -370,7 +249,7 @@
     </div>
 
     <script>
-        var heroBg = document.querySelector('.contract-hero-bg');
+        var heroBg = document.querySelector('.policy-hero-bg');
         var ticking = false;
         window.addEventListener('scroll', function() {
             if (!ticking) {
@@ -385,6 +264,10 @@
                 ticking = true;
             }
         });
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
         document.querySelectorAll('nav a').forEach(function(a) {
             a.addEventListener('click', function() { document.querySelector('nav').classList.remove('open'); });
         });
