@@ -372,18 +372,21 @@
             overflow: hidden;
             border-radius: 16px;
             box-shadow: 0 20px 80px rgba(0,0,0,0.4);
+            aspect-ratio: 4 / 3;
+            background: #0f1923;
         }
         .slideshow img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            max-height: 550px;
-            object-fit: contain;
-            display: none;
-            background: #0f1923;
-            transition: opacity 0.5s ease;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.6s ease;
         }
         .slideshow img.active {
-            display: block;
+            opacity: 1;
         }
         .slide-btn {
             position: absolute;
@@ -391,6 +394,7 @@
             transform: translateY(-50%);
             background: rgba(255,255,255,0.15);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             color: #fff;
             border: 1px solid rgba(255,255,255,0.2);
             font-size: 1.2rem;
@@ -403,6 +407,8 @@
             border-radius: 50%;
             z-index: 10;
             transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
         .slide-btn:hover {
             background: rgba(200,149,46,0.9);
@@ -623,7 +629,7 @@
             <h2>Craftsmanship Gallery</h2>
         </div>
         <div class="slideshow reveal">
-            <button class="slide-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="slide-btn prev" id="prevBtn" type="button">&#10094;</button>
             <img src="20251113_144445.jpg" class="active" alt="Modern bathroom remodel">
             <img src="20250717_124446.jpg" alt="Marble shower renovation">
             <img src="1000007455.jpg" alt="Kitchen remodel">
@@ -632,7 +638,7 @@
             <img src="1000009527.jpg" alt="Siding project">
             <img src="1000009547.jpg" alt="Exterior renovation">
             <img src="1000007455 (1).jpg" alt="Kitchen project">
-            <button class="slide-btn next" onclick="changeSlide(1)">&#10095;</button>
+            <button class="slide-btn next" id="nextBtn" type="button">&#10095;</button>
         </div>
         <p class="slide-counter"><span id="slideNum">1</span> / 8</p>
     </section>
@@ -650,16 +656,30 @@
     </div>
 
     <script>
-        // Slideshow
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slideshow img');
-        const counter = document.getElementById('slideNum');
+        // Slideshow — fixed height, opacity crossfade, no scroll jump
+        var currentSlide = 0;
+        var slides = document.querySelectorAll('.slideshow img');
+        var counter = document.getElementById('slideNum');
         function changeSlide(dir) {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + dir + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
             counter.textContent = currentSlide + 1;
         }
+        document.getElementById('prevBtn').addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation(); changeSlide(-1);
+        });
+        document.getElementById('nextBtn').addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation(); changeSlide(1);
+        });
+        // Touch swipe support
+        var touchStartX = 0;
+        var slideshow = document.querySelector('.slideshow');
+        slideshow.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        slideshow.addEventListener('touchend', function(e) {
+            var diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) { changeSlide(diff > 0 ? 1 : -1); }
+        }, { passive: true });
         setInterval(function() { changeSlide(1); }, 5000);
 
         // Parallax scroll for hero background
