@@ -4,339 +4,212 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - D&F Construction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background: #fff;
-            color: #1a2a3a;
-            padding: 20px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        header img {
-            height: 60px;
-        }
-        nav a {
-            color: #1a2a3a;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #c8952e;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #2d3436; line-height: 1.7; background: #fafafa; }
 
-        /* About Hero Banner */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* ── Header ── */
+        header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            padding: 16px 48px; display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 1px solid rgba(0,0,0,0.06); transition: all 0.3s ease;
         }
+        header.scrolled { padding: 10px 48px; box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+        .logo-link { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+        .logo-link img { height: 50px; transition: height 0.3s ease; }
+        header.scrolled .logo-link img { height: 40px; }
+        nav { display: flex; align-items: center; gap: 8px; }
+        nav a { color: #1a2a3a; text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 8px 16px; border-radius: 8px; transition: all 0.2s ease; }
+        nav a:hover { background: rgba(200,149,46,0.1); color: #c8952e; }
+        nav a.cta-nav { background: #c8952e; color: #fff; font-weight: 600; }
+        nav a.cta-nav:hover { background: #b5842a; transform: translateY(-1px); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; }
+        .hamburger span { width: 24px; height: 2px; background: #1a2a3a; border-radius: 2px; transition: all 0.3s ease; }
+
+        /* ── Hero ── */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .about-hero {
-            background: linear-gradient(rgba(26,42,58,0.8), rgba(26,42,58,0.8)), url('1000009547.jpg') center/cover no-repeat;
-            color: #fff;
-            text-align: center;
-            padding: 100px 20px;
+            position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; overflow: hidden; margin-top: 0;
         }
+        .about-hero-bg {
+            position: absolute; inset: 0; background: url('1000009547.jpg') center/cover no-repeat;
+            filter: brightness(0.25); transform: scale(1.05);
+        }
+        .about-hero-content { position: relative; z-index: 2; padding: 120px 20px 80px; }
+        .about-hero-content .hero-logo { margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s ease-out 0.2s forwards; }
+        .about-hero-content .hero-logo svg { height: 60px; }
         .about-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            opacity: 0;
-            animation: fadeUp 0.8s ease-out 0.3s forwards;
+            font-family: 'Playfair Display', serif; font-size: 3rem; color: #fff;
+            margin-bottom: 12px; opacity: 0; animation: fadeUp 0.8s ease-out 0.3s forwards;
         }
         .about-hero p {
-            font-size: 1.2rem;
-            color: #c8952e;
-            opacity: 0;
-            animation: fadeUp 0.8s ease-out 0.6s forwards;
+            font-size: 1.1rem; color: #c8952e; opacity: 0; animation: fadeUp 0.8s ease-out 0.5s forwards;
+            font-weight: 500; letter-spacing: 0.02em;
         }
 
-        /* Our Story */
-        .story {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 70px 20px;
-            gap: 40px;
-        }
-        .story-text {
-            flex: 1 1 400px;
-        }
-        .story-text h2 {
-            font-size: 2rem;
-            color: #1a2a3a;
-            margin-bottom: 15px;
-            border-left: 4px solid #c8952e;
-            padding-left: 15px;
-        }
-        .story-text p {
-            color: #555;
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-        .story-image {
-            flex: 1 1 300px;
-            max-width: 450px;
-        }
-        .story-image img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-        }
-
-        /* Values Section */
-        .values {
-            background: #1a2a3a;
-            padding: 70px 20px;
-            text-align: center;
-        }
-        .values h2 {
-            color: #c8952e;
-            font-size: 2rem;
-            margin-bottom: 40px;
-        }
-        .values-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .value-card {
-            flex: 1 1 200px;
-            max-width: 220px;
-            background: #223344;
-            border: 1px solid #2a3a4a;
-            border-radius: 8px;
-            padding: 30px 20px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .value-card:hover {
-            transform: translateY(-5px);
-            border-color: #c8952e;
-        }
-        .value-icon {
-            font-size: 2rem;
-            margin-bottom: 12px;
-            color: #c8952e;
-        }
-        .value-card h3 {
-            color: #fff;
-            margin-bottom: 8px;
-            font-size: 1.1rem;
-        }
-        .value-card p {
-            color: #8a9bb0;
-            font-size: 0.9rem;
-        }
-
-        /* Stats Bar */
+        /* ── Stats ── */
         .stats {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0;
-            background: #f5f0e8;
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            background: #fff; border-bottom: 1px solid #f0ece4;
         }
         .stat {
-            flex: 1 1 200px;
-            text-align: center;
-            padding: 40px 20px;
-            border-right: 1px solid #e0d8c8;
+            text-align: center; padding: 48px 20px;
+            border-right: 1px solid #f0ece4; transition: all 0.3s ease;
         }
-        .stat:last-child {
-            border-right: none;
-        }
-        .stat h3 {
-            font-size: 2.2rem;
-            color: #c8952e;
-            margin-bottom: 5px;
-        }
-        .stat p {
-            color: #1a2a3a;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .stat:last-child { border-right: none; }
+        .stat:hover { background: #faf8f4; }
+        .stat h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #c8952e; margin-bottom: 8px; }
+        .stat p { color: #636e72; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
 
-        /* Photo Strip */
-        .photo-strip {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0;
+        /* ── Story ── */
+        .story {
+            display: flex; flex-wrap: wrap; align-items: center; max-width: 1100px;
+            margin: 0 auto; padding: 100px 20px; gap: 60px;
         }
+        .story-text { flex: 1 1 400px; }
+        .story-text .section-label {
+            display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 3px;
+            text-transform: uppercase; color: #c8952e; margin-bottom: 16px;
+        }
+        .story-text h2 {
+            font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #1a2a3a;
+            margin-bottom: 20px; line-height: 1.3;
+        }
+        .story-text p { color: #636e72; margin-bottom: 16px; font-size: 1rem; }
+        .story-image { flex: 1 1 300px; max-width: 450px; }
+        .story-image img { width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+
+        /* ── Photo Strip ── */
+        .photo-strip { display: flex; flex-wrap: wrap; gap: 0; }
         .photo-strip img {
-            flex: 1 1 33.33%;
-            max-width: 33.33%;
-            height: 250px;
-            object-fit: cover;
+            flex: 1 1 33.33%; max-width: 33.33%; height: 300px; object-fit: cover;
+            transition: filter 0.4s ease; filter: brightness(0.9);
         }
+        .photo-strip img:hover { filter: brightness(1); }
 
-        /* Service Area */
-        .service-area {
-            background: #f5f0e8;
-            padding: 70px 20px;
-            text-align: center;
+        /* ── Values ── */
+        .values { background: #0f1923; padding: 100px 20px; text-align: center; }
+        .values .section-label { display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #c8952e; margin-bottom: 16px; }
+        .values h2 { font-family: 'Playfair Display', serif; color: #fff; font-size: 2.5rem; margin-bottom: 50px; }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+        .value-card {
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px; padding: 36px 24px; transition: all 0.4s ease;
         }
-        .service-area h2 {
-            font-size: 2rem;
-            color: #1a2a3a;
-            margin-bottom: 15px;
-        }
-        .service-area p {
-            color: #555;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 25px;
-        }
-        .service-area .cta {
-            display: inline-block;
-            background: #c8952e;
-            color: #fff;
-            padding: 14px 35px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-        .service-area .cta:hover {
-            background: #b0832a;
-        }
+        .value-card:hover { transform: translateY(-6px); border-color: rgba(200,149,46,0.4); background: rgba(255,255,255,0.06); }
+        .value-icon { font-size: 2rem; margin-bottom: 16px; color: #c8952e; }
+        .value-card h3 { color: #fff; margin-bottom: 10px; font-size: 1.1rem; font-weight: 600; }
+        .value-card p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
 
-        /* Insurance Badge */
+        /* ── Service Area ── */
+        .service-area { background: #fff; padding: 100px 20px; text-align: center; }
+        .service-area .section-label { display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #c8952e; margin-bottom: 16px; }
+        .service-area h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #1a2a3a; margin-bottom: 16px; }
+        .service-area p { color: #636e72; font-size: 1.05rem; max-width: 600px; margin: 0 auto 24px; }
         .badge {
-            display: inline-block;
-            border: 2px solid #1a2a3a;
-            border-radius: 30px;
-            padding: 8px 20px;
-            font-weight: bold;
-            color: #1a2a3a;
-            font-size: 0.9rem;
-            margin-top: 15px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            display: inline-block; border: 2px solid #1a2a3a; border-radius: 50px;
+            padding: 10px 28px; font-weight: 600; color: #1a2a3a; font-size: 0.85rem;
+            letter-spacing: 2px; text-transform: uppercase;
         }
+        .cta-btn {
+            display: inline-flex; align-items: center; gap: 10px; background: #c8952e; color: #fff;
+            padding: 16px 40px; text-decoration: none; border-radius: 50px; font-weight: 600;
+            font-size: 1rem; transition: all 0.3s ease; letter-spacing: 0.02em;
+        }
+        .cta-btn:hover { background: #b5842a; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(200,149,46,0.35); }
 
-        footer {
-            background: #1a2a3a;
-            color: #8a9bb0;
-            text-align: center;
-            padding: 20px 20px 80px;
-            font-size: 0.9rem;
-        }
+        /* ── Footer ── */
+        footer { background: #0f1923; border-top: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.4); text-align: center; padding: 40px 20px 100px; font-size: 0.85rem; }
+        .footer-logo { margin-bottom: 20px; }
+        .footer-logo svg { height: 40px; opacity: 0.6; }
+        footer p { margin-bottom: 4px; }
+        footer a { color: #c8952e; text-decoration: none; }
+        .mobile-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: #0f1923; border-top: 1px solid rgba(255,255,255,0.08); }
+        .mobile-bar a { display: inline-block; width: 50%; text-align: center; padding: 16px 0; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        .mobile-bar .call-btn { background: #c8952e; color: #fff; }
+        .mobile-bar .email-btn { background: #0f1923; color: #fff; }
 
-        /* Mobile sticky bottom bar */
-        .mobile-bar {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: #1a2a3a;
-            border-top: 1px solid #2a3a4a;
-        }
-        .mobile-bar a {
-            display: inline-block;
-            width: 50%;
-            text-align: center;
-            padding: 14px 0;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.95rem;
-        }
-        .mobile-bar .call-btn {
-            background: #c8952e;
-            color: #fff;
-        }
-        .mobile-bar .email-btn {
-            background: #1a2a3a;
-            color: #fff;
-        }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
         @media (max-width: 768px) {
-            .mobile-bar {
-                display: flex;
+            .mobile-bar { display: flex; }
+            header { padding: 14px 20px; }
+            nav {
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+                background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+                flex-direction: column; justify-content: center; gap: 4px; padding: 20px;
+                transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                box-shadow: -10px 0 40px rgba(0,0,0,0.1);
             }
-            .story {
-                padding: 40px 20px;
-            }
-            .photo-strip img {
-                flex: 1 1 100%;
-                max-width: 100%;
-                height: 200px;
-            }
-            .stat {
-                border-right: none;
-                border-bottom: 1px solid #e0d8c8;
-            }
-            header {
-                padding: 15px 20px;
-            }
-            nav a {
-                margin-left: 10px;
-                font-size: 0.85rem;
-            }
+            nav.open { right: 0; }
+            nav a { font-size: 1.1rem; padding: 14px 20px; width: 100%; text-align: left; }
+            .hamburger { display: flex; }
+            .about-hero h1 { font-size: 2rem; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .stat { border-bottom: 1px solid #f0ece4; }
+            .story { padding: 60px 20px; }
+            .photo-strip img { flex: 1 1 100%; max-width: 100%; height: 220px; }
+            .values { padding: 60px 20px; }
+            .service-area { padding: 60px 20px; }
         }
     </style>
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="Black logo - no background_240413_201627.jpg" alt="D&F Construction Logo"></a>
+        <a href="index.html" class="logo-link">
+            <img src="Black logo - no background_240413_201627.jpg" alt="D&F Construction Logo">
+        </a>
+        <div class="hamburger" onclick="document.querySelector('nav').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </div>
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="index.html#services">Services</a>
             <a href="index.html#portfolio">Gallery</a>
             <a href="contract.html">Contract</a>
-            <a href="quote.html">Get a Quote</a>
+            <a href="quote.html" class="cta-nav">Get a Quote</a>
         </nav>
     </header>
 
     <section class="about-hero">
-        <h1>About D&amp;F Construction</h1>
-        <p>Family owned. Community driven. Built on trust.</p>
+        <div class="about-hero-bg"></div>
+        <div class="about-hero-content">
+            <div class="hero-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 60" fill="none">
+                    <text x="60" y="28" text-anchor="middle" font-family="'Playfair Display',serif" font-weight="700" font-size="26" fill="#fff">D&amp;F</text>
+                    <line x1="20" y1="36" x2="100" y2="36" stroke="#c8952e" stroke-width="1.5"/>
+                    <text x="60" y="50" text-anchor="middle" font-family="'Inter',sans-serif" font-weight="500" font-size="8" fill="rgba(255,255,255,0.7)" letter-spacing="3">CONSTRUCTION</text>
+                </svg>
+            </div>
+            <h1>About D&amp;F Construction</h1>
+            <p>Family owned. Community driven. Built on trust.</p>
+        </div>
     </section>
 
     <section class="stats">
-        <div class="stat">
-            <h3>10+</h3>
-            <p>Years Experience</p>
-        </div>
-        <div class="stat">
-            <h3>75 mi</h3>
-            <p>Service Radius</p>
-        </div>
-        <div class="stat">
-            <h3>100%</h3>
-            <p>Fully Insured</p>
-        </div>
-        <div class="stat">
-            <h3>Family</h3>
-            <p>Owned &amp; Operated</p>
-        </div>
+        <div class="stat reveal"><h3>10+</h3><p>Years Experience</p></div>
+        <div class="stat reveal"><h3>75 mi</h3><p>Service Radius</p></div>
+        <div class="stat reveal"><h3>100%</h3><p>Fully Insured</p></div>
+        <div class="stat reveal"><h3>Family</h3><p>Owned &amp; Operated</p></div>
     </section>
 
     <section class="story">
-        <div class="story-text">
-            <h2>Our Story</h2>
+        <div class="story-text reveal">
+            <span class="section-label">Our Story</span>
+            <h2>Built on Integrity,<br>Driven by Craft</h2>
             <p>D&amp;F Construction is a family-owned and operated business built on the belief that every project deserves the same care and attention we'd give our own home. With over a decade of hands-on experience in construction and remodeling, we've earned the trust of homeowners and businesses across the St. Louis area.</p>
             <p>From our first project to today, our approach has never changed: do honest work, communicate openly, and never cut corners. We treat every job site like it's our own property and every client like they're family.</p>
             <p>Whether it's a kitchen renovation, new construction, or a commercial buildout, we bring the same level of dedication and craftsmanship to every project we take on.</p>
         </div>
-        <div class="story-image">
+        <div class="story-image reveal">
             <img src="1000007455.jpg" alt="D&F Construction kitchen project">
         </div>
     </section>
@@ -348,47 +221,54 @@
     </div>
 
     <section class="values">
-        <h2>What We Stand For</h2>
+        <div class="reveal">
+            <span class="section-label">Our Values</span>
+            <h2>What We Stand For</h2>
+        </div>
         <div class="values-grid">
-            <div class="value-card">
-                <div class="value-icon">&#9733;</div>
-                <h3>Quality Work</h3>
-                <p>Every detail matters. We deliver results that stand the test of time.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">&#9829;</div>
-                <h3>Customer First</h3>
-                <p>Your satisfaction is our top priority from start to finish.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">&#9745;</div>
-                <h3>Honesty</h3>
-                <p>Straightforward pricing, no hidden fees, no surprises.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">&#9881;</div>
-                <h3>Transparency</h3>
-                <p>Open communication at every stage of your project.</p>
-            </div>
+            <div class="value-card reveal"><div class="value-icon">&#9733;</div><h3>Quality Work</h3><p>Every detail matters. We deliver results that stand the test of time.</p></div>
+            <div class="value-card reveal"><div class="value-icon">&#9829;</div><h3>Customer First</h3><p>Your satisfaction is our top priority from start to finish.</p></div>
+            <div class="value-card reveal"><div class="value-icon">&#9745;</div><h3>Honesty</h3><p>Straightforward pricing, no hidden fees, no surprises.</p></div>
+            <div class="value-card reveal"><div class="value-icon">&#9881;</div><h3>Transparency</h3><p>Open communication at every stage of your project.</p></div>
         </div>
     </section>
 
-    <section class="service-area">
+    <section class="service-area reveal">
+        <span class="section-label">Coverage</span>
         <h2>Proudly Serving St. Louis &amp; Surrounding Areas</h2>
         <p>We serve the greater St. Louis metropolitan area and surrounding communities within a 75-mile radius. No project is too big or too small.</p>
         <span class="badge">Licensed &amp; Fully Insured</span>
-        <br><br>
-        <a href="quote.html" class="cta">Get Your Free Estimate</a>
+        <br><br><br>
+        <a href="quote.html" class="cta-btn">Get Your Free Estimate</a>
     </section>
 
     <footer>
+        <div class="footer-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" fill="none">
+                <text x="80" y="22" text-anchor="middle" font-family="'Playfair Display',serif" font-weight="700" font-size="22" fill="#fff">D&amp;F</text>
+                <text x="80" y="40" text-anchor="middle" font-family="'Inter',sans-serif" font-weight="400" font-size="8" fill="rgba(255,255,255,0.5)" letter-spacing="4">CONSTRUCTION</text>
+            </svg>
+        </div>
         <p>&copy; 2026 D&amp;F Construction. All rights reserved.</p>
-        <p>Phone: (314) 537-1270 | Email: damir@dfconstruction.net</p>
+        <p>Phone: <a href="tel:3145371270">(314) 537-1270</a> | Email: <a href="mailto:damir@dfconstruction.net">damir@dfconstruction.net</a></p>
     </footer>
 
     <div class="mobile-bar">
         <a href="tel:3145371270" class="call-btn">Call Now</a>
         <a href="mailto:damir@dfconstruction.net" class="email-btn">Email Us</a>
     </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
+        });
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+        document.querySelectorAll('nav a').forEach(function(a) {
+            a.addEventListener('click', function() { document.querySelector('nav').classList.remove('open'); });
+        });
+    </script>
 </body>
 </html>
